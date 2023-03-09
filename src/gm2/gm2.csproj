@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net48</TargetFrameworks>
+    <RootNamespace>System</RootNamespace>
+    <AssemblyName>gm2</AssemblyName>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>gm2</PackageId>
+    <Title>gm2</Title>
+    <Version>1</Version>
+    <Authors>dandelionsystem</Authors>
+    <Company>dandelionsystem.com</Company>
+    <Product>gm2</Product>
+    <Description>Basic frequently used functions.</Description>
+    <Copyright>dandelionsystem.com</Copyright>
+    <PackageProjectUrl>https://github.com/dandelionsystem-com/gm2</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dandelionsystem-com/gm2.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Basic frequently used functions.</PackageReleaseNotes>
+    <AssemblyVersion>1</AssemblyVersion>
+    <FileVersion>1</FileVersion>
+    <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+
+</Project>
