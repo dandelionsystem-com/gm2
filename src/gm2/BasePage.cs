@@ -5,7 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-namespace System.gm.web
+namespace System.gm
 {
     public class BasePage : System.Web.UI.Page
     {

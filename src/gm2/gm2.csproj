@@ -7,8 +7,8 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>gm2</PackageId>
     <Title>gm2</Title>
-    <Version>1</Version>
-    <Authors>dandelionsystem</Authors>
+    <Version>1.1</Version>
+    <Authors>Dandelion System</Authors>
     <Company>dandelionsystem.com</Company>
     <Product>gm2</Product>
     <Description>Basic frequently used functions.</Description>
@@ -17,8 +17,8 @@
     <RepositoryUrl>https://github.com/dandelionsystem-com/gm2.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Basic frequently used functions.</PackageReleaseNotes>
-    <AssemblyVersion>1</AssemblyVersion>
-    <FileVersion>1</FileVersion>
+    <AssemblyVersion>1.1</AssemblyVersion>
+    <FileVersion>1.1</FileVersion>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
   </PropertyGroup>
 

@@ -303,23 +303,13 @@ namespace System
             }
             try
             {
-                string[] sa = null;
-                if (s.Contains("-"))
+                string[] sa = s.Split(new char[] { '-', '.', '/', '\\'}, StringSplitOptions.RemoveEmptyEntries);
+
+                if(sa.Length<3)
                 {
-                    sa = s.Split('-');
+                    return DateTime.MinValue;
                 }
-                else if (s.Contains("/"))
-                {
-                    sa = s.Split('/');
-                }
-                else if (s.Contains("\\"))
-                {
-                    sa = s.Split('\\');
-                }
-                else if (s.Contains("."))
-                {
-                    sa = s.Split('.');
-                }
+
                 string d = $"{sa[2]}-{sa[1]}-{sa[0]}";
                 return DateParseExact(d);
             }
@@ -331,6 +321,35 @@ namespace System
         public static DateTime DateParseInput(string s)
         {
             return DateParseExactReverse(s);
+        }
+
+        public static DateTime DateTimeParseInput(string s)
+        {
+            try
+            {
+                if (s == null || s.Length == 0)
+                    return DateTime.MinValue;
+
+                string[] da = s.Split(new char[] { '-', 'T', ':' }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (da.Length < 5)
+                {
+                    return DateTime.MinValue;
+                }
+
+                int year = dp.IntParse(da[0]);
+                int month = dp.IntParse(da[1]);
+                int day = dp.IntParse(da[2]);
+                int hour = dp.IntParse(da[3]);
+                int minute = dp.IntParse(da[4]);
+
+                DateTime date = new DateTime(year, month, day, hour, minute, 0);
+
+                return date;
+            }
+            catch { }
+
+            return DateTime.MinValue;
         }
 
         /// <summary>
