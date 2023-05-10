@@ -303,15 +303,33 @@ namespace System
             }
             try
             {
-                string[] sa = s.Split(new char[] { '-', '.', '/', '\\'}, StringSplitOptions.RemoveEmptyEntries);
+                string[] sa = s.Split(new char[] { '-', '.', '/', '\\', 'T', ':' }, StringSplitOptions.RemoveEmptyEntries);
 
-                if(sa.Length<3)
+                if (sa.Length > 2)
                 {
-                    return DateTime.MinValue;
-                }
+                    int year = dp.IntParse(sa[0]);
+                    int month = dp.IntParse(sa[1]);
+                    int day = dp.IntParse(sa[2]);
 
-                string d = $"{sa[2]}-{sa[1]}-{sa[0]}";
-                return DateParseExact(d);
+                    int hour = 0;
+                    int minute = 0;
+                    int second = 0;
+
+                    if (sa.Length > 4)
+                    {
+                        hour = dp.IntParse(sa[3]);
+                        minute = dp.IntParse(sa[4]);
+                    }
+
+                    if (sa.Length > 5)
+                    {
+                        second = dp.IntParse(sa[5]);
+                    }
+
+                    DateTime date = new DateTime(year, month, day, hour, minute, second);
+
+                    return date;
+                }
             }
             catch
             { }
