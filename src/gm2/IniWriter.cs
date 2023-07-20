@@ -70,7 +70,12 @@ namespace System.gm
             var properties = anyClassObject.GetType().GetProperties();
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("[" + title + "]");
+
+            if (title != null && title.Length > 0)
+            {
+                sb.AppendLine("[" + title + "]");
+            }
+
             foreach (var fieldInfo in fields)
             {
                 if (fieldInfo.Name.StartsWith("<"))
@@ -119,10 +124,8 @@ namespace System.gm
             return ReadIniContent<T>(iniContent);
         }
 
-        public static T ReadIniContent<T>(string iniContent)
+        public static void ReadIniContent<T>(string iniContent, T ob)
         {
-            var ob = Activator.CreateInstance<T>();
-
             string[] lines = iniContent.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             Dictionary<string, string> dic = new Dictionary<string, string>();
             foreach (string s in lines)
@@ -167,6 +170,15 @@ namespace System.gm
                     fieldInfo.SetValue(ob, GetValue(dic[fieldInfo.Name], fieldInfo.FieldType));
                 }
             }
+
+            
+        }
+
+        public static T ReadIniContent<T>(string iniContent)
+        {
+            var ob = Activator.CreateInstance<T>();
+
+            ReadIniContent<T>(iniContent, ob);
 
             return (T)ob;
         }
